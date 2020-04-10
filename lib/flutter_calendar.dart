@@ -150,7 +150,7 @@ class _CalendarState extends State<Calendar> {
             isDayOfWeek: true,
             dayOfWeek: day,
             dayOfWeekStyles: TextStyle(
-                color: Color(0xff01c7ff), fontWeight: FontWeight.bold),
+                color: Color(0xff01c7ff), fontWeight: FontWeight.w600),
           ),
         );
       },
@@ -218,9 +218,12 @@ class _CalendarState extends State<Calendar> {
       return new Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: <Widget>[
-          new Text(
-            Utils.fullDayFormat(selectedDate),
-            style: TextStyle(color: Color(0xff01c7ff), fontWeight: FontWeight.bold),
+          Padding(
+            padding: EdgeInsets.only(left: 10.0),
+            child: new Text(
+              Utils.fullDayFormat(selectedDate),
+              style: TextStyle(color: Color(0xff01c7ff), fontWeight: FontWeight.w600),
+            ),
           ),
           new IconButton(
             iconSize: 20.0,
