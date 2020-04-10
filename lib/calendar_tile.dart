@@ -34,13 +34,13 @@ class CalendarTile extends StatelessWidget {
         ),
       );
     } else {
-      return new InkWell(
+      return new GestureDetector(
         onTap: onDateSelected,
         child: new Container(
           decoration: isSelected
               ? new BoxDecoration(
                   shape: BoxShape.circle,
-                  color: Theme.of(context).primaryColor,
+                  color: Color(0xff01c7ff),
                 )
               : new BoxDecoration(),
           alignment: Alignment.center,
@@ -57,7 +57,7 @@ class CalendarTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     if (child != null) {
-      return new InkWell(
+      return new GestureDetector(
         child: child,
         onTap: onDateSelected,
       );

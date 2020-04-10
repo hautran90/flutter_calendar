@@ -39,6 +39,7 @@ class _CalendarState extends State<Calendar> {
   String currentMonth;
   bool isExpanded = false;
   String displayMonth;
+
   DateTime get selectedDate => _selectedDate;
 
   void initState() {
@@ -64,7 +65,10 @@ class _CalendarState extends State<Calendar> {
     if (widget.showCalendarPickerIcon) {
       rightInnerIcon = new IconButton(
         onPressed: () => selectDateFromPicker(),
-        icon: new Icon(Icons.calendar_today),
+        icon: new Icon(
+          Icons.calendar_today,
+          color: Color(0xff01c7ff),
+        ),
       );
     } else {
       rightInnerIcon = new Container();
@@ -73,11 +77,14 @@ class _CalendarState extends State<Calendar> {
     if (widget.showChevronsToChangeRange) {
       leftOuterIcon = new IconButton(
         onPressed: isExpanded ? previousMonth : previousWeek,
-        icon: new Icon(Icons.chevron_left),
+        icon: new Icon(
+          Icons.chevron_left,
+          color: Color(0xff01c7ff),
+        ),
       );
       rightOuterIcon = new IconButton(
         onPressed: isExpanded ? nextMonth : nextWeek,
-        icon: new Icon(Icons.chevron_right),
+        icon: new Icon(Icons.chevron_right, color: Color(0xff01c7ff)),
       );
     } else {
       leftOuterIcon = new Container();
@@ -86,7 +93,10 @@ class _CalendarState extends State<Calendar> {
 
     if (widget.showTodayAction) {
       leftInnerIcon = new InkWell(
-        child: new Text('Today'),
+        child: new Text(
+          'Today',
+          style: TextStyle(color: Color(0xff01c7ff), fontWeight: FontWeight.bold),
+        ),
         onTap: resetToToday,
       );
     } else {
@@ -101,8 +111,9 @@ class _CalendarState extends State<Calendar> {
         new Text(
           displayMonth,
           style: new TextStyle(
-            fontSize: 20.0,
-          ),
+              fontSize: 20.0,
+              color: Color(0xff01c7ff),
+              fontWeight: FontWeight.bold),
         ),
         rightInnerIcon ?? new Container(),
         rightOuterIcon ?? new Container(),
@@ -138,6 +149,8 @@ class _CalendarState extends State<Calendar> {
           new CalendarTile(
             isDayOfWeek: true,
             dayOfWeek: day,
+            dayOfWeekStyles: TextStyle(
+                color: Color(0xff01c7ff), fontWeight: FontWeight.bold),
           ),
         );
       },
@@ -185,17 +198,15 @@ class _CalendarState extends State<Calendar> {
 
     if (isExpanded) {
       final TextStyle body1StyleDisabled = body1Style.copyWith(
-        color: Color.fromARGB(
-          100, 
-          body1Style.color.red, 
-          body1Style.color.green, 
-          body1Style.color.blue,
-        )
-      );
+          color: Color.fromARGB(
+        100,
+        body1Style.color.red,
+        body1Style.color.green,
+        body1Style.color.blue,
+      ));
 
-      dateStyles = monthStarted && !monthEnded
-          ? body1Style
-          : body1StyleDisabled;
+      dateStyles =
+          monthStarted && !monthEnded ? body1Style : body1StyleDisabled;
     } else {
       dateStyles = body1Style;
     }
@@ -207,14 +218,17 @@ class _CalendarState extends State<Calendar> {
       return new Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: <Widget>[
-          new Text(Utils.fullDayFormat(selectedDate)),
+          new Text(
+            Utils.fullDayFormat(selectedDate),
+            style: TextStyle(color: Color(0xff01c7ff), fontWeight: FontWeight.bold),
+          ),
           new IconButton(
             iconSize: 20.0,
             padding: new EdgeInsets.all(0.0),
             onPressed: toggleExpanded,
             icon: isExpanded
-                ? new Icon(Icons.arrow_drop_up)
-                : new Icon(Icons.arrow_drop_down),
+                ? new Icon(Icons.arrow_drop_up, color: Color(0xff01c7ff))
+                : new Icon(Icons.arrow_drop_down, color: Color(0xff01c7ff)),
           ),
         ],
       );
