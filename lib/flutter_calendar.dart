@@ -95,7 +95,8 @@ class _CalendarState extends State<Calendar> {
       leftInnerIcon = new InkWell(
         child: new Text(
           'Today',
-          style: TextStyle(color: Color(0xff01c7ff), fontWeight: FontWeight.bold),
+          style:
+              TextStyle(color: Color(0xff01c7ff), fontWeight: FontWeight.bold),
         ),
         onTap: resetToToday,
       );
@@ -222,7 +223,8 @@ class _CalendarState extends State<Calendar> {
             padding: EdgeInsets.only(left: 10.0),
             child: new Text(
               Utils.fullDayFormat(selectedDate),
-              style: TextStyle(color: Color(0xff01c7ff), fontWeight: FontWeight.w500),
+              style: TextStyle(
+                  color: Color(0xff01c7ff), fontWeight: FontWeight.w500),
             ),
           ),
           new IconButton(
@@ -247,7 +249,13 @@ class _CalendarState extends State<Calendar> {
         mainAxisSize: MainAxisSize.min,
         children: <Widget>[
           nameAndIconRow,
-          Divider(color: Colors.grey.withOpacity(0.2),),
+          Padding(
+            padding: EdgeInsets.only(left: 10.0, right: 10.0),
+            child: Divider(
+              color: Colors.grey.withOpacity(0.2),
+              thickness: 2.0,
+            ),
+          ),
           new ExpansionCrossFade(
             collapsed: calendarGridView,
             expanded: calendarGridView,
