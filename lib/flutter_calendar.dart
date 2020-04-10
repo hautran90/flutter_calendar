@@ -247,6 +247,7 @@ class _CalendarState extends State<Calendar> {
         mainAxisSize: MainAxisSize.min,
         children: <Widget>[
           nameAndIconRow,
+          Divider(color: Colors.grey.withOpacity(0.2),),
           new ExpansionCrossFade(
             collapsed: calendarGridView,
             expanded: calendarGridView,
